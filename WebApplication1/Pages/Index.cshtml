@@ -1,0 +1,24 @@
+﻿@page
+@using Microsoft.Extensions.Localization
+@model IndexModel
+@inject IStringLocalizer d;
+@{
+    ViewData["Title"] = "Home page";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">@d["Hello"]</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<form method="post">
+    <input asp-for=Input.RequiredString />
+    <span asp-validation-for=Input.RequiredString></span>
+    <button type="submit" class="btn btn-primary">
+    <span id="main-profile-spinner" style="display:none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Save
+</button>
+<div asp-validation-summary="All">
+    <span>@d["ValidationSummaryCaption"]</span>
+</div>
+</form>
